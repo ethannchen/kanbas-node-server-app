@@ -1,9 +1,18 @@
-import express from "express"
-import Hello from "./hello.js"
+import express from "express";
+import Hello from "./hello.js";
 import Lab5 from "./lab5.js";
+import CourseRoutes from "./courses/routes.js";
+import ModuleRoutes from "./modules/routes.js";
 
-const app = express()
-Hello(app)
+import cors from "cors";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+Hello(app);
 Lab5(app);
+CourseRoutes(app);
+ModuleRoutes(app);
 
-app.listen(4000)
+app.listen(4000);
